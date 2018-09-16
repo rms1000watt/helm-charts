@@ -12,9 +12,17 @@ Here are all of my helm charts
 ## Usage
 
 ```bash
+# Add repo
 helm repo add rms1000watt https://rms1000watt.github.io/helm-charts
-```
 
+# Install it
+helm install rms1000watt/monochart -f monochart/values.example.yaml
+
+# Look around
+
+# Delete
+helm delete "$(helm ls -q)"
+```
 
 ## Generate
 
