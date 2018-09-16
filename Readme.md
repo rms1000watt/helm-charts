@@ -6,10 +6,15 @@ Here are all of my helm charts
 
 ## Contents
 
-- [Using](#using)
+- [Usage](#usage)
 - [Generate](#generate)
 
-## Using
+## Usage
+
+```bash
+helm repo add rms1000watt https://rms1000watt.github.io/helm-charts
+```
+
 
 ## Generate
 

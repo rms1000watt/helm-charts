@@ -15,5 +15,7 @@ while read -r dir; do
 done <<< "$(find . -type dir -maxdepth 1 | grep -v .git | grep -v docs)"
 
 index=docs/index.html
-echo "Helm Charts:" > "$index"
-find ./docs -type file -name "*.tgz" -exec basename {} \; >> "$index"
+echo "Helm Charts: <br>" > "$index"
+find ./docs -type file -name "*.tgz" | xargs -I file basename file | awk '{print $1 " <br>"}' >> "$index"
+
+helm repo index docs
