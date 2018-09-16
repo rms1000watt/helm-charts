@@ -6,6 +6,5 @@ deployment:
 
 service:
   enabled: true
-  type: LoadBalancer
   internalPort: 9999
   externalPort: 80

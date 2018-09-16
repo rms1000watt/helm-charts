@@ -1,3 +1,4 @@
+{{- if .Values.service -}}
 {{- if .Values.service.enabled -}}
 apiVersion: v1
 kind: Service
@@ -13,7 +14,7 @@ metadata:
 {{ toYaml .| indent 4 }}
 {{- end }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ default "LoadBalancer" .Values.service.type }}
   ports:
     - port: {{ .Values.service.externalPort }}
       targetPort: http
@@ -22,4 +23,5 @@ spec:
   selector:
     app: {{ include "common.name" . }}
     release: {{ .Release.Name }}
+{{- end -}}
 {{- end -}}
