@@ -1,0 +1,83 @@
+{{- if .Values.statefulset -}}
+{{- if .Values.statefulset.enabled -}}
+kind: StatefulSet
+apiVersion: apps/v1beta1
+metadata:
+  name: {{ include "common.fullname" . }}
+{{- with .Values.statefulset.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  labels:
+{{ include "common.labels.standard" . | indent 4 }}
+{{- with .Values.statefulset.labels }}
+{{ toYaml .| indent 4 }}
+{{- end }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "common.name" . }}
+      release: {{ .Release.Name }}
+  serviceName: {{ include "common.fullname" . }}
+  replicas: 1
+{{- with .Values.statefulset.strategy }}
+  updateStrategy:
+{{ toYaml . | indent 4 }}
+{{- end }}
+  revisionHistoryLimit: {{ .Values.statefulset.revisionHistoryLimit }}
+  template:
+    metadata:
+      name: {{ include "common.fullname" . }}
+{{- with .Values.statefulset.pod.annotations }}
+      annotations:
+{{ toYaml . | indent 8 }}
+{{- end }}
+      labels:
+        app: {{ include "common.name" . }}
+        release: {{ .Release.Name | quote }}
+{{- with .Values.statefulset.pod.labels }}
+{{ toYaml .| indent 4 }}
+{{- end }}
+    spec:
+      terminationGracePeriodSeconds: 0
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ required "image.image is required!" .Values.container.image }}
+        imagePullPolicy: {{ default "IfNotPresent" .Values.container.pullPolicy }}
+{{ include "monochart.env" . | indent 8 }}
+        args: {{ .Values.statefulset.pod.args }}
+        ports:
+          - name: http
+            containerPort: {{ .Values.service.internalPort }}
+            protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: storage
+{{ include "monochart.files.volumeMounts" . | indent 8 }}
+{{- with .Values.probes }}
+{{ toYaml . | indent 10 }}
+{{- end }}
+{{- with .Values.resources }}
+          resources:
+{{ toYaml . | indent 12 }}
+{{- end }}
+      imagePullSecrets:
+{{- if .Values.dockercfg.enabled }}
+        - name: {{ include "common.fullname" . }}
+{{- end }}
+{{- with .Values.container.pullSecrets }}
+      {{- range . }}
+        - name: {{ . }}
+      {{- end }}
+{{- end }}
+      volumes:
+      - name: storage
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim | default (include "common.fullname" .) }}
+      {{- else }}
+        emptyDir: {}
+      {{- end }}
+{{ include "monochart.files.volumes" . | indent 6 }}
+{{- end -}}
+{{- end -}}

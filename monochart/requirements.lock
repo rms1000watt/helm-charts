@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: https://kubernetes-charts-incubator.storage.googleapis.com/
+  version: 0.0.4
+- name: dockercfg
+  repository: https://charts.cloudposse.com/incubator/
+  version: 0.1.0
+digest: sha256:6c26651bb2bd0a26a685f54cb02605ea7677c9172665d29f4627806b23396736
+generated: 2018-09-15T23:49:50.400735849-07:00

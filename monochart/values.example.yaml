@@ -1,0 +1,11 @@
+container:
+  image: rms1000watt/dummy-golang-project:latest
+
+deployment:
+  enabled: true
+
+service:
+  enabled: true
+  type: LoadBalancer
+  internalPort: 9999
+  externalPort: 80
