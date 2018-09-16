@@ -2,8 +2,16 @@ apiVersion: v1
 entries:
   monochart:
   - apiVersion: v1
+    appVersion: 0.5.5
+    created: 2018-09-16T00:59:12.184615877-07:00
+    digest: 7802c7e82a92d433ae487114aba6be108262c03e54a62e05d915e9f220b1538c
+    name: monochart
+    urls:
+    - monochart-0.5.5.tgz
+    version: 0.5.5
+  - apiVersion: v1
     appVersion: 0.5.4
-    created: 2018-09-16T00:56:43.034948069-07:00
+    created: 2018-09-16T00:59:12.180776917-07:00
     digest: c807745604ab9ee440293cd7af4dece7685b2a0b1d21f7c088014fbbf72581a3
     name: monochart
     urls:
@@ -11,7 +19,7 @@ entries:
     version: 0.5.4
   - apiVersion: v1
     appVersion: 0.5.3
-    created: 2018-09-16T00:56:43.032370549-07:00
+    created: 2018-09-16T00:59:12.178424557-07:00
     digest: 3ce0bf7a8fab5c05048aa2c438f462d29e0e5d084a89869a1b95a0bc4dac921b
     name: monochart
     urls:
@@ -19,24 +27,24 @@ entries:
     version: 0.5.3
   - apiVersion: v1
     appVersion: 0.5.2
-    created: 2018-09-16T00:56:43.02984179-07:00
+    created: 2018-09-16T00:59:12.175730562-07:00
     digest: f76db9fb05c1b4c24f2a751a2b04d6deb85a79970fb45673f45eb36a16ef9493
     name: monochart
     urls:
     - monochart-0.5.2.tgz
     version: 0.5.2
   - apiVersion: v1
-    created: 2018-09-16T00:56:43.02737772-07:00
+    created: 2018-09-16T00:59:12.173509108-07:00
     digest: aa3a2ead77f9d23f411a874e730464c48fb48fd2d2677fefc83796d2f472e8cc
     name: monochart
     urls:
     - monochart-0.5.1.tgz
     version: 0.5.1
   - apiVersion: v1
-    created: 2018-09-16T00:56:43.024553158-07:00
+    created: 2018-09-16T00:59:12.171064465-07:00
     digest: 222e1309cd74fd5216a73db64a93f432e26bd629bd624bd672ef84817fff3193
     name: monochart
     urls:
     - monochart-0.5.0.tgz
     version: 0.5.0
-generated: 2018-09-16T00:56:43.021072547-07:00
+generated: 2018-09-16T00:59:12.168254164-07:00

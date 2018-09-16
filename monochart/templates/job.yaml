@@ -54,7 +54,7 @@ spec:
 {{- if .Values.dockercfg.enabled }}
         - name: {{ include "common.fullname" . }}
 {{- end }}
-{{- with .Values.container.pullSecrets }}
+{{- with .Values.image.pullSecrets }}
       {{- range . }}
         - name: {{ . }}
       {{- end }}
