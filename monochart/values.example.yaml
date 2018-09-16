@@ -1,5 +1,5 @@
-container:
-  image: rms1000watt/dummy-golang-project:latest
+image:
+  repository: rms1000watt/dummy-golang-project
 
 deployment:
   enabled: true

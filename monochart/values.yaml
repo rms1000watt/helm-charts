@@ -59,7 +59,7 @@ deployment:
   enabled: false
   ## Pods replace strategy
   ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy
-  # strategy: {}    
+  # strategy: {}
   revisionHistoryLimit: 10
   # annotations:
   #   name: value
@@ -76,7 +76,7 @@ statefulset:
   enabled: false
   ## Pods replace strategy
   ## ref: https://v1-10.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#statefulsetupdatestrategy-v1-apps
-  # strategy: {}    
+  # strategy: {}
   revisionHistoryLimit: 10
   # annotations:
   #   name: value
@@ -93,7 +93,7 @@ daemonset:
   enabled: false
   ## Pods replace strategy
   ## ref: https://v1-10.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#daemonsetupdatestrategy-v1-apps
-  # strategy: {}    
+  # strategy: {}
   revisionHistoryLimit: 10
   # annotations:
   #   name: value
@@ -121,7 +121,7 @@ job:
 
 service:
   enabled: false
-  type: ClusterIP
+  type: LoadBalancer
   internalPort: 8080
   externalPort: 80
   # labels:

@@ -31,8 +31,8 @@ spec:
     spec:
       containers:
       - name: {{ .Chart.Name }}
-        image: {{ required "image.image is required!" .Values.container.image }}
-        imagePullPolicy: {{ default "IfNotPresent" .Values.container.pullPolicy | quote }}
+        image: {{ required "image.repository is required!" .Values.image.repository }}:{{ required "image.tag is required!" .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
 {{ include "monochart.env" . | indent 8 }}
         args: {{ .Values.job.pod.args }}
         ports:
