@@ -14,7 +14,7 @@ metadata:
 {{ toYaml .| indent 4 }}
 {{- end }}
 spec:
-  type: {{ default "LoadBalancer" .Values.service.type }}
+  type: {{ default "LoadBalancer" .Values.service.type | quote }}
   ports:
     - port: {{ .Values.service.externalPort }}
       targetPort: http

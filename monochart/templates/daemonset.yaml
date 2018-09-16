@@ -40,7 +40,7 @@ spec:
       containers:
       - name: {{ .Chart.Name }}
         image: {{ .Values.container.image }}
-        imagePullPolicy: {{ default "IfNotPresent" .Values.container.pullPolicy }}
+        imagePullPolicy: {{ default "IfNotPresent" .Values.container.pullPolicy | quote }}
 {{ include "monochart.env" . | indent 8 }}
         args: {{ .Values.daemonset.pod.args }}
         ports:
