@@ -21,7 +21,7 @@ helm install rms1000watt/monochart -f monochart/values.example.yaml
 # Look around
 
 # Delete
-helm delete "$(helm ls -q)"
+helm ls -q | xargs helm delete
 ```
 
 ## Generate
